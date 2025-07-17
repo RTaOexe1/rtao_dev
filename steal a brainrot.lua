@@ -77,9 +77,9 @@ end
 
 -- Create Window
 local Window = redzlib:MakeWindow({
-    Title = "Zeta Hub X Steal a Brainrot",
-    SubTitle = "by SILENT",
-    SaveFolder = "ZetaHubUniversal"
+    Title = "RTaO Hub",
+    SubTitle = "by RTaO",
+    SaveFolder = "RTaOHubUniversal"
 })
 
 Window:AddMinimizeButton({
@@ -133,10 +133,10 @@ end
 local TabDiscord = Window:MakeTab({ Title = "Discord", Icon = "rbxassetid://84198990394879" })
 TabDiscord:AddSection("Discord")
 TabDiscord:AddDiscordInvite({
-    Name = "Zeta Hub",
+    Name = "RTaO Hub",
     Description = "Join the community",
     Logo = "rbxassetid://88800066762467",
-    Invite = "https://discord.gg/pzrtAEDBbt"
+    Invite = "https://discord.com"
 })
 
 -- Security Tab
