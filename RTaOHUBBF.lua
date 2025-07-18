@@ -313,7 +313,7 @@ v5:Destroy();
 -- end);
 local v14 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))();
 local v15 = v14:CreateWindow({
-    Title = "CuongHub",
+    Title = "RTaO HUB",
     SubTitle = "Blox Fruit",
     TabWidth = 160,
     Theme = "Dark",
@@ -580,7 +580,7 @@ function CheckLevel()
             CFrameMon = CFrame.new(- 7760.4106445313, 5679.9077148438, - 1884.8112792969);
         elseif ((v197 == 625) or (v197 <= 649) or (SelectMonster == "Galley Pirate")) then
             Ms = "Galley Pirate";
-            NameQuest = "FountainQuest";
+            NameQuest = "FountainQuest"; 
             QuestLv = 1;
             NameMon = "Galley Pirate";
             CFrameQ = CFrame.new(5258.2788085938, 38.526931762695, 4050.044921875);
@@ -2680,7 +2680,7 @@ v16.Home:AddButton({
     Title = "Discord",
     Description = "Giao Lưu",
     Callback = function()
-        setclipboard("https://discord.gg/RGZbjt8P");
+        setclipboard("https://discord.com");
     end
 });
 _G.FastAttackStrix_Mode = "Super Fast Attack";
