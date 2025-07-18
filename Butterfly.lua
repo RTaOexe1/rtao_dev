@@ -676,12 +676,12 @@ IsPc = CheckPC()
 executor = tostring(identifyexecutor())
 if IsPc then
   if not string.find(executor, "Wave") or not string.find(executor, "AWP") then
-    Fluent:Notify({Title = "📢 Warning 📢",Content = "your executor isn't offically supported, you may experience bug or glitch",SubContent = "By.Butter",Duration = 15})
+    Fluent:Notify({Title = "📢 Warning 📢",Content = "your executor isn't offically supported, you may experience bug or glitch",SubContent = "By.RTaO",Duration = 15})
   else
-    Fluent:Notify({Title = "📢 Warning 📢",Content = "your executor is goods.",SubContent = "By.Butter",Duration = 15})
+    Fluent:Notify({Title = "📢 Warning 📢",Content = "your executor is goods.",SubContent = "By.RTaO",Duration = 15})
   end
 else
-  Fluent:Notify({Title = "📢 Warning 📢",Content = "your executor is goods.",SubContent = "By.Butter",Duration = 15})
+  Fluent:Notify({Title = "📢 Warning 📢",Content = "your executor is goods.",SubContent = "By.RTaO",Duration = 15})
 end
 
 local FarmLevel = Tabs.Main:AddToggle("FarmLevel", {Title = "Auto Farm Level", Description = "", Default = false})
