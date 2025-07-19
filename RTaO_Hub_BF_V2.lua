@@ -11959,9 +11959,9 @@ v79:Button("Change Buso Haki State", function()
 end);
 local v122 = game:GetService("Players");
 game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "Beru Hub",
+	Title = "RTaO Hub",
 	Text = "Loading...",
-	Icon = "rbxthumb://type=Asset&id=129912758563771&w=150&h=150",
+	Icon = "rbxthumb://type=Asset&id=118738997559787&w=150&h=150",
 	Duration = 10
 });
 spawn(function()
