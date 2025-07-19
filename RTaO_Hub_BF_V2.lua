@@ -987,7 +987,7 @@ v8.BorderSizePixel = 0;
 v8.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0);
 v8.Size = UDim2.new(0, 53.5, 0, 53.5);
 v8.BackgroundTransparency = 1;
-v8.Image = "rbxassetid://129912758563771";
+v8.Image = "rbxassetid://131242779197620";
 v8.Draggable = true;
 v8.MouseButton1Click:Connect(function()
 	game.CoreGui:FindFirstChild("Anchor").Enabled = not game.CoreGui:FindFirstChild("Anchor").Enabled;
