@@ -987,7 +987,7 @@ v8.BorderSizePixel = 0;
 v8.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0);
 v8.Size = UDim2.new(0, 53.5, 0, 53.5);
 v8.BackgroundTransparency = 1;
-v8.Image = "rbxassetid://118738997559787";
+v8.Image = "rbxassetid://125363560409040";
 v8.Draggable = true;
 v8.MouseButton1Click:Connect(function()
 	game.CoreGui:FindFirstChild("Anchor").Enabled = not game.CoreGui:FindFirstChild("Anchor").Enabled;
@@ -11961,7 +11961,7 @@ local v122 = game:GetService("Players");
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "RTaO Hub",
 	Text = "Loading...",
-	Icon = "rbxthumb://type=Asset&id=118738997559787&w=150&h=150",
+	Icon = "rbxthumb://type=Asset&id=125363560409040&w=150&h=150",
 	Duration = 10
 });
 spawn(function()
