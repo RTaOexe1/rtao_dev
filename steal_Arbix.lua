@@ -777,7 +777,7 @@ DebugInfo("print", "ArbixTPGui initialization completed", "")
 ]]
 
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "ArbixHub"
+ScreenGui.Name = "RTaO Hub"
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.IgnoreGuiInset = true
 ScreenGui.DisplayOrder = 999
@@ -1184,7 +1184,7 @@ SubmitButton.MouseButton1Click:Connect(function()
         task.wait(0.4)
         ScreenGui:Destroy()
         Blur:Destroy()
-        print("[ArbixHub]: ArbixBlur destroyed")
+        print("[RTaOHub]: RTaOBlur destroyed")
         local success, errorMsg = pcall(function()
             local func = loadstring(scriptToLoad)
             if not func then
@@ -1193,9 +1193,9 @@ SubmitButton.MouseButton1Click:Connect(function()
             func()
         end)
         if not success then
-            warn("[ArbixHub ERROR]: Failed to execute scriptToLoad: " .. tostring(errorMsg))
+            warn("[RTaOHubERROR]: Failed to execute scriptToLoad: " .. tostring(errorMsg))
         else
-            print("[ArbixHub]: Successfully executed scriptToLoad")
+            print("[RTaOHub]: Successfully executed scriptToLoad")
         end
     else
         NotificationFrame.Visible = true
