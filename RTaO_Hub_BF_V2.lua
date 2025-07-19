@@ -3032,7 +3032,7 @@ local v79 = v66:T("Tab Miscellaneous", "rbxassetid://10709782582");
 v67:Seperator("Join Discord");
 v67:Label("Everyone Goes Into Socialize");
 v67:Button("Copy Discord Link", function()
-	setclipboard("https://discord.gg/tenroblox");
+	setclipboard("https://discord.gg/EH23mXVqce");
 end);
 v67:Seperator("Time");
 Time = v67:Label("Executer Time");
