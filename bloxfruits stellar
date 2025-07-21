@@ -8,7 +8,7 @@
 -- TweenService:Create(blur, TweenInfo.new(0.5), {Size = 24}):Play()
 
 -- local screenGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
--- screenGui.Name = "StellarLoader"
+-- screenGui.Name = "RTaOLoader"
 -- screenGui.ResetOnSpawn = false
 -- screenGui.IgnoreGuiInset = true
 
@@ -23,7 +23,7 @@
 -- bg.ZIndex = 0
 -- TweenService:Create(bg, TweenInfo.new(0.5), {BackgroundTransparency = 0.3}):Play()
 
--- local word = "STELLAR"
+-- local word = "RTaO"
 -- local letters = {}
 
 -- local function tweenOutAndDestroy()
