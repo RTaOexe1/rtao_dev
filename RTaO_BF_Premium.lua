@@ -175,7 +175,7 @@ hookfunction(require(game:GetService("ReplicatedStorage").Effect.Container.Death
 hookfunction(require(game:GetService("ReplicatedStorage").Effect.Container.Respawn), function() end)
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 Window = Fluent:CreateWindow({
-    Title = "RTaOHub Premium",
+    Title = "RTaO_Dev | Premium",
     SubTitle="Blox Fruits", 
     TabWidth=155, 
     Theme="Darker",
@@ -2357,22 +2357,22 @@ task.defer(function()
 end)
 wait(1.0)
 Tabs.Info:AddButton({
-        Title="RTaO",
-        Description="Discord",
+        Title="Join Discord Server",
+        Description="By RTaO",
         Callback=function()
             setclipboard(tostring("https://discord.gg/EH23mXVqce")) 
         end
 })
 Tabs.Info:AddButton({
-    Title="RTaOhub",
-    Description="Tiktok",
+    Title="TikTok",
+    Description="By RTaO",
     Callback=function()
         setclipboard(tostring("tiktok.com/@rtao_rs"))
     end
 })
 Tabs.Info:AddParagraph({
-    Title="RTaO",
-    Content="Credits"
+    Title="Credits",
+    Content="By RTaO"
 })
 local executorName
 if identifyexecutor then
@@ -2382,7 +2382,7 @@ elseif getexecutorname then
 end
 if executorName then
     Tabs.Info:AddParagraph({
-        Title="Client in use",
+        Title="Executor",
         Content=executorName
     })
 end
