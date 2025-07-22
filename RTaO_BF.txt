@@ -12085,4 +12085,22 @@ for _, v in pairs(resultNormal) do
 		ServTab:Label(tostring(NormalFruitInfo));
 	end;
 end;
+-- เพิ่ม Auto Attack (M1 หรือ Skill Z)
+local Vim = game:GetService("VirtualInputManager")
+local Players = game:GetService("Players")
+local lp = Players.LocalPlayer
+local AutoAttack = true -- เปลี่ยนเป็น false ถ้าไม่อยากให้ตีทันที
+
+task.spawn(function()
+    while task.wait(0.2) do
+        pcall(function()
+            if AutoAttack and lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
+                -- กดคลิกเมาส์ซ้าย หรือจะใช้กด Z ก็ได้
+                Vim:SendMouseButtonEvent(0, 0, 0, true, game, 0)
+                task.wait(0.05)
+                Vim:SendMouseButtonEvent(0, 0, 0, false, game, 0)
+            end
+        end)
+    end
+end)
 print("Script Loaded!");
