@@ -2422,7 +2422,7 @@ spawn(function()
 	end;
 end);
 MainTab:Button("Copy Discord Link", function()
-	setclipboard("https://discord.gg/FmMuvkaWvG");
+	setclipboard("https://discord.gg/EH23mXVqce");
 	Update:Notify("Copied!", 3);
 end);
 MainTab:Seperator("Level Farm");
