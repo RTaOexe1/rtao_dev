@@ -1,4 +1,4 @@
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+--Script By RTaO 
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
@@ -10,74 +10,17 @@ local LocalPlayer = Players.LocalPlayer
 local Camera = workspace.CurrentCamera
 local VirtualInputManager = game:GetService("VirtualInputManager")
 
-local Window = Fluent:CreateWindow({
-    Title = "RTaO Dev | ",
-    SubTitle = "Prospecting! Script",
-    TabWidth = 100,
-    Size = UDim2.fromOffset(670, 460),
-    Acrylic = true,
+local v14 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))();
+local v15 = v14:CreateWindow({
+    Title = "CuongHub",
+    SubTitle = "Blox Fruit",
+    TabWidth = 160,
     Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.LeftControl
-})
--- Floating Toggle Button แบบลากได้ + เปลี่ยน icon
-local player = game:GetService("Players").LocalPlayer
-local playerGui = player:WaitForChild("PlayerGui")
+    Acrylic = false,
+    Size = UDim2.fromOffset(500, 320),
+    MinimizeKey = Enum.KeyCode.End
+});
 
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "FloatingToggle"
-screenGui.ResetOnSpawn = false
-screenGui.Parent = playerGui
-
-local toggleBtn = Instance.new("ImageButton")
-toggleBtn.Name = "ToggleButton"
-toggleBtn.Size = UDim2.new(0, 40, 0, 40)
-toggleBtn.Position = UDim2.new(1, -60, 0, 120)
-toggleBtn.AnchorPoint = Vector2.new(0.5, 0.5)
-
--- เปลี่ยน icon ตรงนี้ ⭐ (เฟือง)
-toggleBtn.Image = "rbxassetid://6031094678" -- ปุ่มไอคอนเฟือง
-toggleBtn.BackgroundTransparency = 1
-toggleBtn.Parent = screenGui
-
--- ระบบลากปุ่ม
-local dragging, dragInput, dragStart, startPos
-
-toggleBtn.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		dragging = true
-		dragStart = input.Position
-		startPos = toggleBtn.Position
-
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
-end)
-
-toggleBtn.InputChanged:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-		dragInput = input
-	end
-end)
-
-game:GetService("UserInputService").InputChanged:Connect(function(input)
-	if input == dragInput and dragging then
-		local delta = input.Position - dragStart
-		toggleBtn.Position = UDim2.new(
-			startPos.X.Scale, startPos.X.Offset + delta.X,
-			startPos.Y.Scale, startPos.Y.Offset + delta.Y
-		)
-	end
-end)
-
--- ปุ่มกดเปิด/ปิด Fluent UI
-toggleBtn.MouseButton1Click:Connect(function()
-	if not dragging then
-		Window.Root.Enabled = not Window.Root.Enabled
-	end
-end)
 local Tabs = {
     Main = Window:AddTab({ Title = "Pan", Icon = "chef-hat" }),
     Buy = Window:AddTab({ Title = "Shopping", Icon = "shopping-cart" }),
