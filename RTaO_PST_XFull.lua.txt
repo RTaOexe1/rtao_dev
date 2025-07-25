@@ -329,7 +329,45 @@ local Window = Fluent:CreateWindow({
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl
 })
+task.delay(1, function()
+    local button = game:GetService("CoreGui"):FindFirstChild("Fluent") and game:GetService("CoreGui").Fluent:FindFirstChild("ToggleUI")
+    if button and button:IsA("ImageButton") then
+        button.Image = "rbxassetid://131412349284393"
+        local UIS = game:GetService("UserInputService")
+        local dragging = false
+        local dragStart, startPos
 
+        button.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = true
+                dragStart = input.Position
+                startPos = button.Position
+
+                input.Changed:Connect(function()
+                    if input.UserInputState == Enum.UserInputState.End then
+                        dragging = false
+                    end
+                end)
+            end
+        end)
+
+        button.InputChanged:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                UIS.InputChanged:Connect(function(moveInput)
+                    if moveInput == input and dragging then
+                        local delta = moveInput.Position - dragStart
+                        button.Position = UDim2.new(
+                            startPos.X.Scale,
+                            startPos.X.Offset + delta.X,
+                            startPos.Y.Scale,
+                            startPos.Y.Offset + delta.Y
+                        )
+                    end
+                end)
+            end
+        end)
+    end
+end)
 local Tabs = {
     Main = Window:AddTab({ Title = "Pan", Icon = "chef-hat" }),
     Buy = Window:AddTab({ Title = "Shopping", Icon = "shopping-cart" }),
