@@ -19,7 +19,65 @@ local Window = Fluent:CreateWindow({
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl
 })
+-- Floating Toggle Button แบบลากได้ + เปลี่ยน icon
+local player = game:GetService("Players").LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
 
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "FloatingToggle"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = playerGui
+
+local toggleBtn = Instance.new("ImageButton")
+toggleBtn.Name = "ToggleButton"
+toggleBtn.Size = UDim2.new(0, 40, 0, 40)
+toggleBtn.Position = UDim2.new(1, -60, 0, 120)
+toggleBtn.AnchorPoint = Vector2.new(0.5, 0.5)
+
+-- เปลี่ยน icon ตรงนี้ ⭐ (เฟือง)
+toggleBtn.Image = "rbxassetid://6031094678" -- ปุ่มไอคอนเฟือง
+toggleBtn.BackgroundTransparency = 1
+toggleBtn.Parent = screenGui
+
+-- ระบบลากปุ่ม
+local dragging, dragInput, dragStart, startPos
+
+toggleBtn.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = toggleBtn.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+toggleBtn.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
+	end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		local delta = input.Position - dragStart
+		toggleBtn.Position = UDim2.new(
+			startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y
+		)
+	end
+end)
+
+-- ปุ่มกดเปิด/ปิด Fluent UI
+toggleBtn.MouseButton1Click:Connect(function()
+	if not dragging then
+		Window.Root.Enabled = not Window.Root.Enabled
+	end
+end)
 local Tabs = {
     Main = Window:AddTab({ Title = "Pan", Icon = "chef-hat" }),
     Buy = Window:AddTab({ Title = "Shopping", Icon = "shopping-cart" }),
@@ -1803,84 +1861,5 @@ Fluent:Notify({
     Content = "Script loaded. Press LeftControl to toggle.",
     Duration = 5
 })
--- 🌐 ใส่หลังโหลด GUI หลัก (Rayfield / Fluent)
--- ปรับให้ใช้ได้กับมือถือทุกรุ่น
 
-local UserInputService = game:GetService("UserInputService")
-local CoreGui = game:GetService("CoreGui")
-local PlayerGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
-
--- 🔁 ลบอันเก่า (ถ้ามี)
-pcall(function()
-    local oldToggle = CoreGui:FindFirstChild("MobileToggleUI")
-    if oldToggle then oldToggle:Destroy() end
-end)
-
--- 📦 สร้างหน้าจอใหม่
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "MobileToggleUI"
-screenGui.ResetOnSpawn = false
-screenGui.IgnoreGuiInset = true
-screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-screenGui.Parent = CoreGui
-
--- 🎯 ปุ่มเปิด/ปิด GUI
-local toggleButton = Instance.new("ImageButton")
-toggleButton.Name = "ToggleButton"
-toggleButton.Size = UDim2.new(0, 60, 0, 60)
-toggleButton.Position = UDim2.new(0, 20, 1, -80) -- มุมล่างซ้าย
-toggleButton.BackgroundTransparency = 1
-toggleButton.Image = "rbxassetid://17878964844" -- << ใส่รูปที่คุณต้องการ
-toggleButton.Parent = screenGui
-
-local uicorner = Instance.new("UICorner")
-uicorner.CornerRadius = UDim.new(1, 0)
-uicorner.Parent = toggleButton
-
--- 🧠 เปลี่ยนตรงนี้ถ้าคุณใช้ Rayfield หรือ UI อื่น
-local function toggleMainUI()
-    local visible = false
-    for _, gui in ipairs(CoreGui:GetChildren()) do
-        if gui.Name:match("Rayfield") then
-            visible = not gui.Enabled
-            gui.Enabled = visible
-        end
-    end
-end
-
-toggleButton.MouseButton1Click:Connect(toggleMainUI)
-
--- 🎮 ระบบลากได้ (Mobile/Finger & Mouse)
-local dragging = false
-local dragInput, dragStart, startPos
-
-toggleButton.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = true
-        dragStart = input.Position
-        startPos = toggleButton.Position
-
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-            end
-        end)
-    end
-end)
-
-toggleButton.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-        dragInput = input
-    end
-end)
-
-UserInputService.InputChanged:Connect(function(input)
-    if dragging and input == dragInput then
-        local delta = input.Position - dragStart
-        toggleButton.Position = UDim2.new(
-            startPos.X.Scale, startPos.X.Offset + delta.X,
-            startPos.Y.Scale, startPos.Y.Offset + delta.Y
-        )
-    end
-end)
 SaveManager:LoadAutoloadConfig()
