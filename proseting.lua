@@ -1799,7 +1799,7 @@ SaveManager:BuildConfigSection(Tabs.Settings)
 
 Window:SelectTab(1)
 Fluent:Notify({
-    Title = "Prospecting! 💎 Menu",
+    Title = "RTaO Dev Script",
     Content = "Script loaded. Press LeftControl to toggle.",
     Duration = 5
 })
