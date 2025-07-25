@@ -10,7 +10,7 @@ local LocalPlayer = Players.LocalPlayer
 local Camera = workspace.CurrentCamera
 local VirtualInputManager = game:GetService("VirtualInputManager")
 
-shared.LoaderTitle = "Credits: CuongHub";
+shared.LoaderTitle = "Credits: RTaO Dev";
 shared.LoaderKeyFrames = {
     [1] = {
         1,
@@ -114,7 +114,7 @@ local v8 = CreateObject("TextLabel", {
     Name = "UserName",
     Parent = v6,
     BackgroundTransparency = 1,
-    Text = "CuongHub",
+    Text = "RTaO Dev",
     Position = UDim2.new(0, 75, 0, 10),
     Size = UDim2.new(0, 200, 0, 50),
     Font = Enum.Font.GothamBold,
@@ -332,12 +332,12 @@ local v15 = v14:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 });
 
-local Tabs = {
-    Main = Window:AddTab({ Title = "Pan", Icon = "chef-hat" }),
-    Buy = Window:AddTab({ Title = "Shopping", Icon = "shopping-cart" }),
-    Teleport = Window:AddTab({ Title = "Teleport", Icon = "navigation" }),
-    Movement = Window:AddTab({ Title = "Movement", Icon = "user" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+local v16 = {
+    Main = v15:AddTab({ Title = "Pan", Icon = "chef-hat" }),
+    Buy = v15:AddTab({ Title = "Shopping", Icon = "shopping-cart" }),
+    Teleport = v15:AddTab({ Title = "Teleport", Icon = "navigation" }),
+    Movement = v15:AddTab({ Title = "Movement", Icon = "user" }),
+    Settings = v15:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
 local Options = Fluent.Options
