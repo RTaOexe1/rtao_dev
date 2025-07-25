@@ -9,10 +9,6 @@ local UserInputService = game:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
 local Camera = workspace.CurrentCamera
 local VirtualInputManager = game:GetService("VirtualInputManager")
-local Update = (loadstring(Game:HttpGet("https://raw.githubusercontent.com/RTaOexe1/rtao_dev/refs/heads/main/RTaO_UI.lua")))();
-if Update:LoadAnimation() then
-	Update:StartLoad();
-end;
 
 local Window = Fluent:CreateWindow({
     Title = "RTaO Dev | ",
