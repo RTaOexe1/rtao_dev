@@ -1803,5 +1803,84 @@ Fluent:Notify({
     Content = "Script loaded. Press LeftControl to toggle.",
     Duration = 5
 })
+-- 🌐 ใส่หลังโหลด GUI หลัก (Rayfield / Fluent)
+-- ปรับให้ใช้ได้กับมือถือทุกรุ่น
 
+local UserInputService = game:GetService("UserInputService")
+local CoreGui = game:GetService("CoreGui")
+local PlayerGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+
+-- 🔁 ลบอันเก่า (ถ้ามี)
+pcall(function()
+    local oldToggle = CoreGui:FindFirstChild("MobileToggleUI")
+    if oldToggle then oldToggle:Destroy() end
+end)
+
+-- 📦 สร้างหน้าจอใหม่
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "MobileToggleUI"
+screenGui.ResetOnSpawn = false
+screenGui.IgnoreGuiInset = true
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+screenGui.Parent = CoreGui
+
+-- 🎯 ปุ่มเปิด/ปิด GUI
+local toggleButton = Instance.new("ImageButton")
+toggleButton.Name = "ToggleButton"
+toggleButton.Size = UDim2.new(0, 60, 0, 60)
+toggleButton.Position = UDim2.new(0, 20, 1, -80) -- มุมล่างซ้าย
+toggleButton.BackgroundTransparency = 1
+toggleButton.Image = "rbxassetid://17878964844" -- << ใส่รูปที่คุณต้องการ
+toggleButton.Parent = screenGui
+
+local uicorner = Instance.new("UICorner")
+uicorner.CornerRadius = UDim.new(1, 0)
+uicorner.Parent = toggleButton
+
+-- 🧠 เปลี่ยนตรงนี้ถ้าคุณใช้ Rayfield หรือ UI อื่น
+local function toggleMainUI()
+    local visible = false
+    for _, gui in ipairs(CoreGui:GetChildren()) do
+        if gui.Name:match("Rayfield") then
+            visible = not gui.Enabled
+            gui.Enabled = visible
+        end
+    end
+end
+
+toggleButton.MouseButton1Click:Connect(toggleMainUI)
+
+-- 🎮 ระบบลากได้ (Mobile/Finger & Mouse)
+local dragging = false
+local dragInput, dragStart, startPos
+
+toggleButton.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = toggleButton.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+toggleButton.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if dragging and input == dragInput then
+        local delta = input.Position - dragStart
+        toggleButton.Position = UDim2.new(
+            startPos.X.Scale, startPos.X.Offset + delta.X,
+            startPos.Y.Scale, startPos.Y.Offset + delta.Y
+        )
+    end
+end)
 SaveManager:LoadAutoloadConfig()
