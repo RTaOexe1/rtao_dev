@@ -11,8 +11,8 @@ local Camera = workspace.CurrentCamera
 local VirtualInputManager = game:GetService("VirtualInputManager")
 
 local Window = Fluent:CreateWindow({
-    Title = "RTaO Dev",
-    SubTitle = "Prospecting! 💎 Menu",
+    Title = "RTaO Dev | ",
+    SubTitle = "Prospecting! Script",
     TabWidth = 100,
     Size = UDim2.fromOffset(670, 460),
     Acrylic = true,
