@@ -3011,10 +3011,10 @@ Components.TitleBar = (function()
 				},
 			})
 		end)
-		TitleBar.MaxButton = BarButton(Components.Assets.Max, UDim2.new(1, -40, 0, 4), TitleBar.Frame, function()
+		TitleBar.MaxButton = BarButton(Components.Assets.Max, UDim2.new(0, 10, 0, 15), TitleBar.Frame, function()
 			Config.Window.Maximize(not Config.Window.Maximized)
 		end)
-		TitleBar.MinButton = BarButton(Components.Assets.Min, UDim2.new(1, -80, 0, 4), TitleBar.Frame, function()
+		TitleBar.MinButton = BarButton(Components.Assets.Min, UDim2.new(0, 40, 0, 15), TitleBar.Frame, function()
 			Library.Window:Minimize()
 		end)
 
