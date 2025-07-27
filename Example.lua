@@ -16,8 +16,12 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
-}
+})
 
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/AREXANS/Arexans-GAG/refs/heads/main/InterfaceManager.lua"))()
+InterfaceManager:SetLibrary(Fluent)
+InterfaceManager:SetFolder("GrowAGarden")
+InterfaceManager:BuildInterfaceSection(config)
 local Options = Fluent.Options
 
 do
