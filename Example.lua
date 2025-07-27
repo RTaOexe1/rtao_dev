@@ -1,5 +1,6 @@
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/AREXANS/Arexans-GAG/refs/heads/main/realease.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/AREXANS/Arexans-GAG/refs/heads/main/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
     Title = "Fluent " .. Fluent.Version,
@@ -10,7 +11,7 @@ local Window = Fluent:CreateWindow({
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/AREXANS/Arexans-GAG/refs/heads/main/InterfaceManager.lua"))()
+
 InterfaceManager:SetLibrary(Fluent)
 InterfaceManager:SetFolder("GrowAGarden")
 InterfaceManager:BuildInterfaceSection(config)
