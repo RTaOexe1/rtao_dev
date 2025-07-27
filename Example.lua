@@ -10,7 +10,11 @@ local Window = Fluent:CreateWindow({
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
-
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/AREXANS/Arexans-GAG/refs/heads/main/InterfaceManager.lua"))()
+InterfaceManager:SetLibrary(Fluent)
+InterfaceManager:SetFolder("GrowAGarden")
+InterfaceManager:BuildInterfaceSection(config)
+local Options = Fluent.Options
 --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs and sections, icons are optional
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
@@ -20,12 +24,6 @@ local Tabs = {
 do
     local Section = Tabs.Main:AddSection("Section", "apple") -- Create section with icon
 
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/AREXANS/Arexans-GAG/refs/heads/main/InterfaceManager.lua"))()
-InterfaceManager:SetLibrary(Fluent)
-InterfaceManager:SetFolder("GrowAGarden")
-InterfaceManager:BuildInterfaceSection(config)
-local Options = Fluent.Options
-  
     Fluent:Notify({
         Title = "Notification",
         Content = "This is a notification",
