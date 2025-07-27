@@ -1,7 +1,7 @@
--- discord.gg/RGZbjt8P
+-- RTaO Dev
 
 
-shared.LoaderTitle = "Make By: macuongdz ";
+shared.LoaderTitle = "Make By: RTaO";
 shared.LoaderKeyFrames = {
     [1] = {
         1,
@@ -313,8 +313,8 @@ v5:Destroy();
 -- end);
 local v14 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))();
 local v15 = v14:CreateWindow({
-    Title = "BananaHubRaids",
-    SubTitle = "by macuongdz",
+    Title = "BloxFruit",
+    SubTitle = "By RTaO Dev",
     TabWidth = 160,
     Theme = "Dark",
     Acrylic = false,
