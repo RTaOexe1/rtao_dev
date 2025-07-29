@@ -15,7 +15,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 
 local Window = Fluent:CreateWindow({
     Title = "99 Nights In The Forest |",
-    SubTitle = "by Lucas | 1.5.6",
+    SubTitle = " By RTaODev| 0.1",
     TabWidth = 180,
     Size = UDim2.fromOffset(600, 350),
     Acrylic = false,
@@ -40,7 +40,7 @@ imageButton.Name = "DraggableButton"
 imageButton.Image = decalId
 imageButton.Size = UDim2.new(0, 65, 0, 65)
 imageButton.AnchorPoint = Vector2.new(0.5, 0.5)
-imageButton.Position = UDim2.new(0, 100, 1, -400)
+imageButton.Position = UDim2.new(0, 15, 0, 10)
 imageButton.BackgroundTransparency = 0
 imageButton.AutoButtonColor = false
 imageButton.Parent = screenGui
