@@ -184,7 +184,7 @@ function Update:StartLoad()
 	MainLoaderFrame.BorderSizePixel = 0;
 	local TitleLoader = Instance.new("TextLabel");
 	TitleLoader.Parent = MainLoaderFrame;
-	TitleLoader.Text = "RTaO";
+	TitleLoader.Text = "RTaO Dev";
 	TitleLoader.Font = Enum.Font.FredokaOne;
 	TitleLoader.TextSize = 50;
 	TitleLoader.TextColor3 = Color3.fromRGB(255, 255, 255);
@@ -321,7 +321,7 @@ function Update:Window(Config)
 	local keybind = keybind or Enum.KeyCode.RightControl;
 	local yoo = string.gsub(tostring(keybind), "Enum.KeyCode.", "");
 	local RTaO = Instance.new("ScreenGui");
-	RTaO.Name = "RTaO";
+	RTaO.Name = "RTaO Dev";
 	RTaO.Parent = game.CoreGui;
 	RTaO.DisplayOrder = 999;
 	local OutlineMain = Instance.new("Frame");
