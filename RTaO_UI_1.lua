@@ -58,7 +58,7 @@ OutlineButton.Parent = ScreenGui;
 OutlineButton.ClipsDescendants = true;
 OutlineButton.BackgroundColor3 = _G.Dark;
 OutlineButton.BackgroundTransparency = 0;
-OutlineButton.Position = UDim2.new(0, 10, 0, 10);
+OutlineButton.Position = UDim2.new(0, 10, 0, 15);
 OutlineButton.Size = UDim2.new(0, 50, 0, 50);
 CreateRounded(OutlineButton, 12);
 local ImageButton = Instance.new("ImageButton");
