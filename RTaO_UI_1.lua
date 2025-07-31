@@ -321,7 +321,7 @@ function Update:Window(Config)
 	local keybind = keybind or Enum.KeyCode.RightControl;
 	local yoo = string.gsub(tostring(keybind), "Enum.KeyCode.", "");
 	local RTaO = Instance.new("ScreenGui");
-	RTaO.Name = "RTaO Dev";
+	RTaO.Name = "RTaO";
 	RTaO.Parent = game.CoreGui;
 	RTaO.DisplayOrder = 999;
 	local OutlineMain = Instance.new("Frame");
