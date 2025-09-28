@@ -8,9 +8,9 @@ local playerDisplayName = player.DisplayName
 
 -- Buat Window versi baru
 local Window = WindUI:CreateWindow({
-    Title = "Nexa - Premium",
+    Title = "RTaO - BETA",
     Icon = "rbxassetid://107488593993096",
-    Author = "Fisch Script | @ Han",
+    Author = "Fisch Script",
     Folder = "Hanzo",
     Size = UDim2.fromOffset(580, 490),
     Transparent = true,
@@ -85,8 +85,8 @@ Tabs.Home:Paragraph({
 Tabs.Home:Section({ Title = "Server" })
 
 Tabs.Home:Paragraph({
-    Title = "Discord - Nexa | COMMUNITY",
-    Desc = "Indonesia 🇮🇩",
+    Title = "Discord - RTaO | COMMUNITY",
+    Desc = "Thailand 🇹🇭",
     Image = "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxsG72wAo9EWJR4yQWyJJaDaK1XdUso6cUMpI9hAdPUU_FNs11cY1X284vsHrnWtRw7oqRpN1m9YAg21d_aNKnIo-&format=source",
     ImageSize = 20,
     Color = "Grey",
@@ -96,7 +96,7 @@ Tabs.Home:Paragraph({
             Icon = "copy",
             Variant = "Tertiary",
             Callback = function()
-                setclipboard("discord.gg/ECxQFc97F5")
+                setclipboard("discord.gg/EH23mXVqce")
                 WindUI:Notify({
                     Title = "Copied!",
                     Content = "Discord link copied to clipboard",
