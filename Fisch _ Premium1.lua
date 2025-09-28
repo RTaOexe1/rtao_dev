@@ -39,7 +39,7 @@ local Tabs = {
     Teleport = Window:Tab({ Title = "Teleport", Icon = "map-pin"  }),
 }
 
-InfoTab:Paragraph({
+Tabs.InfoTab:Paragraph({
     Title = "Welcome to RTaO Community",
     Desc = "Version Game: Fish it.",
     Image = "rbxassetid://121989361864413",
@@ -48,7 +48,7 @@ InfoTab:Paragraph({
     ThumbnailSize = 170
 })
 
-InfoTab:Button({
+Tabs.InfoTab:Button({
     Title = "Join Our Discord",
     Desc = "Click to copy our Discord invite link.",
     Callback = function()
@@ -112,7 +112,7 @@ local inviteCode = "EH23mXVqce"
 local inviteData = LookupDiscordInvite(inviteCode)
 
 if inviteData then
-    InfoTab:Paragraph({
+    Tabs.InfoTab:Paragraph({
         Title = string.format("[DISCORD] %s", inviteData.name),
         Desc = string.format("Members: %s\nOnline: %s",
             formatNumber(inviteData.members),
