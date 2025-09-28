@@ -1,3 +1,7 @@
+-- Load WindUI
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+
+
 local confirmed = false
 WindUI:Popup({
     Title = "Important!",
@@ -11,9 +15,6 @@ Buttons = {
     }
 })
 repeat task.wait() until confirmed
-
--- Load WindUI
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 -- Ambil nama player
 local player = game.Players.LocalPlayer
