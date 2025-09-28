@@ -1,3 +1,17 @@
+local confirmed = false
+WindUI:Popup({
+    Title = "Important!",
+    Icon = "rbxassetid://129260712070622",
+    Content = [[
+Thank you for using RTaO script!.!
+]],
+Buttons = {
+        { Title = "Close", Variant = "Secondary", Callback = function() end },
+        { Title = "Next", Variant = "Primary", Callback = function() confirmed = true end },
+    }
+})
+repeat task.wait() until confirmed
+
 -- Load WindUI
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
