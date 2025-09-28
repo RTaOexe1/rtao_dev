@@ -46,6 +46,71 @@ InfoTab:Button({
     end
 })
 
+-------------------------------------------
+----- =======[ HOME TAB ]
+-------------------------------------------
+
+local HttpService = game:GetService("HttpService")
+local InviteAPI = "https://discord.com/api/v10/invites/"
+
+local function formatNumber(n)
+    return tostring(n):reverse():gsub("(%d%d%d)", "%1,"):reverse():gsub("^,", "")
+end
+
+local function LookupDiscordInvite(inviteCode)
+    local url = InviteAPI .. inviteCode .. "?with_counts=true"
+    local success, response = pcall(function()
+        return game:HttpGet(url)
+    end)
+
+    if success and response then
+        local ok, data = pcall(function()
+            return HttpService:JSONDecode(response)
+        end)
+
+        if ok and data then
+            if data.message == "You are being rate limited." and data.retry_after then
+                warn("[RateLimit] ต้องรอ " .. tostring(data.retry_after) .. " วิ ก่อนยิงใหม่")
+                task.wait(data.retry_after)
+                return LookupDiscordInvite(inviteCode)
+            end
+
+            return {
+                name = data.guild and data.guild.name or "Unknown",
+                id = data.guild and data.guild.id or "Unknown",
+                online = data.approximate_presence_count or 0,
+                members = data.approximate_member_count or 0,
+                icon = (data.guild and data.guild.icon)
+                    and ("https://cdn.discordapp.com/icons/"..data.guild.id.."/"..data.guild.icon..".png")
+                    or "",
+            }
+        else
+            warn("JSON Decode failed. Response:", response)
+        end
+    else
+        warn("Failed to get invite data. Invalid invite or no internet?")
+    end
+    return nil
+end
+
+local inviteCode = "EH23mXVqce"
+local inviteData = LookupDiscordInvite(inviteCode)
+
+if inviteData then
+    InfoTab:Paragraph({
+        Title = string.format("[DISCORD] %s", inviteData.name),
+        Desc = string.format("Members: %s\nOnline: %s",
+            formatNumber(inviteData.members),
+            formatNumber(inviteData.online)
+        ),
+        Image = inviteData.icon,
+        ImageSize = 50,
+        Locked = true,
+    })
+else
+    warn("Invite is not valid.")
+end
+
 Tabs.Farm:Section({ Title = "Fishing" })
 
 -- // Variable
