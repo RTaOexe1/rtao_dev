@@ -6,105 +6,44 @@ local player = game.Players.LocalPlayer
 local playerName = player.Name
 local playerDisplayName = player.DisplayName
 
--- Buat Window versi baru
 local Window = WindUI:CreateWindow({
-    Title = "RTaO - BETA",
-    Icon = "rbxassetid://107488593993096",
-    Author = "Fisch Script",
-    Folder = "Hanzo",
-    Size = UDim2.fromOffset(580, 490),
-    Transparent = true,
-    Theme = "Dark",
-    
-    HidePanelBackground = true,
-    NewElements = false,
-
-    User = {
-        Enabled = true,
-        Anonymous = false,           -- false biar muncul nama asli
-        Name = playerDisplayName,    -- Nama tampilan
-        UserName = "@" .. playerName, -- Username Roblox
-        Callback = function()
-            WindUI:Notify({
-                Title = "User Profile",
-                Content = "User profile clicked!",
-                Duration = 3
-            })
-        end
-    },
-    
-    Acrylic = false,
-    HideSearchBar = false,
-    SideBarWidth = 200,
+    Title = "RTaO - Fish It",
+    Icon = "rbxassetid://80647723335499",
+    IconThemed = true,
+    Author = "VERSION: VIP",
+    Folder = "RTaO-Community",
+    Size = UDim2.new(0, 380, 0, 260), -- ✅ Lebih kecil biar pas di Android
+    Theme = "Dark" -- Bisa ganti "Light" kalau silau
 })
-
-Window:Tag({
-    Title = "v0.0.1",
-    Color = Color3.fromHex("#30ff6a")
-})
-
-Window:EditOpenButton({
-    Enabled = false
-})
-
-task.delay(6.5, function()
-    WindUI:Notify({
-        Title = "Bug Report",
-        Content = "If there are any errors, please let the developer know. Join Discord to report bugs.",
-        Icon = "cloud-alert",
-        Duration = 6
-    })
-end)
-
-task.delay(13, function()
-    WindUI:Notify({
-        Title = "Purchase",
-        Content = "If you want to buy this premium script key, join Discord to buy premium.",
-        Icon = "shopping-cart",
-        Duration = 6
-    })
-end)
 
 -- ✅ Tab dan UI
 local Tabs = {
-    Home = Window:Tab({ Title = "Home", Icon = "house"  }),
+    InfoTab = Window:Tab({ Title = "Info", Icon = "info" }),
     Farm = Window:Tab({ Title = "Farm", Icon = "fish"  }),
     Shop = Window:Tab({ Title = "Shop", Icon = "shopping-cart"  }),
     Teleport = Window:Tab({ Title = "Teleport", Icon = "map-pin"  }),
 }
 
-Tabs.Home:Section({ Title = "Update" })
-
-Tabs.Home:Paragraph({
-    Title = "Here's what's new:",
-    Desc = [[
-[/] Fixed Auto Sell
-    ]]
+InfoTab:Paragraph({
+    Title = "Welcome to RTaO Community",
+    Desc = "Version Game: Fish it.",
+    Image = "rbxassetid://121989361864413",
+    ImageSize = 30,
+    Thumbnail = "rbxassetid://115270950864592",
+    ThumbnailSize = 170
 })
 
-Tabs.Home:Section({ Title = "Server" })
-
-Tabs.Home:Paragraph({
-    Title = "Discord - RTaO | COMMUNITY",
-    Desc = "Thailand 🇹🇭",
-    Image = "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxsG72wAo9EWJR4yQWyJJaDaK1XdUso6cUMpI9hAdPUU_FNs11cY1X284vsHrnWtRw7oqRpN1m9YAg21d_aNKnIo-&format=source",
-    ImageSize = 20,
-    Color = "Grey",
-    Buttons = {
-        {
-            Title = "Copy Link",
-            Icon = "copy",
-            Variant = "Tertiary",
-            Callback = function()
-                setclipboard("discord.gg/EH23mXVqce")
-                WindUI:Notify({
-                    Title = "Copied!",
-                    Content = "Discord link copied to clipboard",
-                    Duration = 2
-                })
-            end
-        }
-    }
+InfoTab:Button({
+    Title = "Join Our Discord",
+    Desc = "Click to copy our Discord invite link.",
+    Callback = function()
+        setclipboard("https://discord.gg/kWC8Nn7kne")
+        WindUI:Notify({
+            Title = "Discord",
+            Content = "Discord invite link copied to clipboard!",
+            Duration = 5
+        })
+    end
 })
 
 Tabs.Farm:Section({ Title = "Fishing" })
