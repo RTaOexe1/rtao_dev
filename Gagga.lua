@@ -891,10 +891,10 @@ local function bringItemsByPlayerTP(itemNames, originalPosition)
 end
 
 local Window = WindUI:CreateWindow({
-    Title = "DYHUB",
+    Title = "RTaO",
     Icon = "rbxassetid://104487529937663", 
-    Author = "99 Night in the Forest | Free Version",
-    Folder = "AxsHub",
+    Author = "99 Night in the Forest | BETA Version",
+    Folder = "RTaODev",
     Size = UDim2.fromOffset(500, 350),
     Transparent = getgenv().TransparencyEnabled,
     Theme = "Dark",
@@ -961,7 +961,7 @@ pcall(function()
 end)
 
 Window:EditOpenButton({
-    Title = "DYHUB - Open",
+    Title = "RTaO",
     Icon = "monitor",
     CornerRadius = UDim.new(0, 6),
     StrokeThickness = 2,
@@ -974,62 +974,62 @@ local Tabs = {}
 Tabs.Info = Window:Tab({
     Title = "Information",
     Icon = "badge-info",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 
 Tabs.Main = Window:Tab({
     Title = "Main",
     Icon = "rocket",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 Tabs.Auto = Window:Tab({
     Title = "Auto",
     Icon = "wrench",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 Tabs.br = Window:Tab({
     Title = "Bring",
     Icon = "package",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 
 Tabs.Combat = Window:Tab({
     Title = "Combat",
     Icon = "sword",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 Tabs.Fly = Window:Tab({
     Title = "Player",
     Icon = "user",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 Tabs.esp = Window:Tab({
     Title = "Esp",
     Icon = "eye",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 Tabs.Tp = Window:Tab({
     Title = "Teleport",
     Icon = "map",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 
 Tabs.More = Window:Tab({
     Title = "Farm",
     Icon = "crown",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 
 Tabs.Anti = Window:Tab({
     Title = "Anti",
     Icon = "shield",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 
 Tabs.Vision = Window:Tab({
     Title = "Settings",
     Icon = "settings",
-    Desc = "DYHUB"
+    Desc = "RTaO"
 })
 
 Window:SelectTab(1)
@@ -2444,7 +2444,7 @@ RunService.Heartbeat:Connect(function()
             Lighting.GlobalShadows = false
             Lighting.FogStart = 100000
             Lighting.FogEnd = 100000
-            print("[DYHUB] hi 3")
+            print("[RTaO] hi 3")
         end
     end
 end)
@@ -2486,7 +2486,7 @@ Tabs.Vision:Toggle({
             Lighting.OutdoorAmbient = Color3.new(0, 0, 0)
             Lighting.ColorShift_Top = Color3.new(0, 0, 0)
             Lighting.ColorShift_Bottom = Color3.new(0, 0, 0)
-            print("[DYHUB] hi 1")
+            print("[RTaO] hi 1")
         end
     end
 })
@@ -2537,20 +2537,20 @@ Tabs.Vision:Button({
 
 -- สร้างแท็บก่อน
 Tabs.Vision:Button({
-    Title = "FPS Boost (By DYHUB)",
+    Title = "FPS Boost (By RTaO)",
     Callback = function()
-        print("[DYHUB] FPS Boost Applied")
+        print("[RTaO] FPS Boost Applied")
 
         
         local success, err = pcall(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/Nigga.lua"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/rtaodev/RTaO-Dev---Universal---Game-/main/RTaO%20Dev.lua"))()
         end)
 
         if success then
-            print("[DYHUB] Script loaded successfully")
+            print("[RTaO] Script loaded successfully")
         else
-            warn("[DYHUB] Failed to load script: " .. tostring(err))
-            print("[DYHUB] hi 1")
+            warn("[RTaO] Failed to load script: " .. tostring(err))
+            print("[RTaO] hi 1")
         end
     end
 })
@@ -2703,7 +2703,7 @@ end
 -- Remove this line completely: Info = InfoTab
 -- The Info variable is already correctly set above
 
-local InviteCode = "jWNDPNMmyB"
+local InviteCode = "EH23mXVqce"
 local DiscordAPI = "https://discord.com/api/v10/invites/" .. InviteCode .. "?with_counts=true&with_expiration=true"
 
 local function LoadDiscordInfo()
@@ -2788,7 +2788,7 @@ LoadDiscordInfo()
 
 Info:Divider()
 Info:Section({ 
-    Title = "DYHUB Information",
+    Title = "RTaO Information",
     TextXAlignment = "Center",
     TextSize = 17,
 })
@@ -2796,32 +2796,12 @@ Info:Divider()
 
 local Owner = Info:Paragraph({
     Title = "Main Owner",
-    Desc = "@dyumraisgoodguy#8888",
+    Desc = "@rtaogoodjob#9999",
     Image = "rbxassetid://119789418015420",
     ImageSize = 30,
     Thumbnail = "",
     ThumbnailSize = 0,
     Locked = false,
-})
-
-local Social = Info:Paragraph({
-    Title = "Social",
-    Desc = "Copy link social media for follow!",
-    Image = "rbxassetid://104487529937663",
-    ImageSize = 30,
-    Thumbnail = "",
-    ThumbnailSize = 0,
-    Locked = false,
-    Buttons = {
-        {
-            Icon = "copy",
-            Title = "Copy Link",
-            Callback = function()
-                setclipboard("https://guns.lol/DYHUB")
-                print("Copied social media link to clipboard!")
-            end,
-        }
-    }
 })
 
 local Discord = Info:Paragraph({
@@ -2837,7 +2817,7 @@ local Discord = Info:Paragraph({
             Icon = "copy",
             Title = "Copy Link",
             Callback = function()
-                setclipboard("https://discord.gg/jWNDPNMmyB")
+                setclipboard("https://discord.gg/EH23mXVqce")
                 print("Copied discord link to clipboard!")
             end,
         }
